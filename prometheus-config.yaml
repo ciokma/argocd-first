@@ -19,11 +19,11 @@ data:
         relabel_configs:
           - source_labels: [__meta_kubernetes_namespace]
             action: keep
-            regex: namespace1|namespace2|namespace3 # List of namespaces to monitor
+            regex: default|prod-frontend|qa-frontend|dev-frontend # List of namespaces to monitor
       - job_name: 'kubernetes-services'
         kubernetes_sd_configs:
           - role: service
         relabel_configs:
           - source_labels: [__meta_kubernetes_namespace]
             action: keep
-            regex: namespace1|namespace2|namespace3 # List of namespaces to monitor
+            regex: default|prod-frontend|qa-frontend|dev-frontend # List of namespaces to monitor
