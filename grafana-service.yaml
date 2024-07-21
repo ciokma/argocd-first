@@ -8,8 +8,15 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - port: 3000
-      targetPort: 3000
+    - name: http
+      nodePort: 30000
+      port: 80
       protocol: TCP
+      targetPort: 3000
+    - name: https
+      nodePort: 32351
+      port: 443
+      protocol: TCP
+      targetPort: 3000
   selector:
     app: grafana
